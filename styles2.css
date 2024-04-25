@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.agenteMain{
+    border: solid 1px black;
+    opacity: 60%;
+    height: 70vh;
+    width: 60vw;
+ 
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
