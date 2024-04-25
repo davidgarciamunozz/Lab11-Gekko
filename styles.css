@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.personaje-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 600px;
+    display: inline-block;
+    display: flex;
+}
+
+.personaje-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Estilos para los detalles del personaje */
+.personaje-detalle {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+}
+
+.personaje-detalle img {
+    width: 100%;
+    border-radius: 5px;
+}
+.personaje-card-overlay{
+    /* border: solid; */
+    padding: 1rem;
+    padding-top: 1.3rem;
+}
+#personajes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+img{
+    background-color: gray;
+}
+h2{
+    margin: 1rem 0;
+}
+button{
+    margin: .7rem 0;
+    height: 2rem;
+    width: 12rem;
+}
