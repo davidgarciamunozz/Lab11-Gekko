@@ -6,6 +6,9 @@
 }
 .agente__imagen{
     background-color: gray;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+
 }
 h2{
     margin: 1rem 0;
@@ -17,16 +20,19 @@ button{
 }
 .agente{
     border: solid 1px gray;
+    border-radius: 9px;
     display: flex;
     width: 600px;
 }
 .agente__nombre-contenedor{
-    border: solid 1px gray;
+    padding: 1.5rem;
 }
 #personajes-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 1rem;
+
 }
 
 .agente__boton{
@@ -34,4 +40,5 @@ button{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: .5rem;
 }
