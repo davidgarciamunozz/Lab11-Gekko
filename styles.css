@@ -22,7 +22,7 @@ button{
     border: solid 1px gray;
     border-radius: 9px;
     display: flex;
-    width: 600px;
+    width: 750px;
 }
 .agente__nombre-contenedor{
     padding: 1.5rem;
