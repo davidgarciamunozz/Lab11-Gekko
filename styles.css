@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-img{
+.agente__imagen{
     background-color: gray;
 }
 h2{
@@ -27,4 +27,11 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.agente__boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
