@@ -2,6 +2,7 @@ import { obtenerAPI, Agente } from "./utils.js";
 
 
 const render = async () => {
+
     const data = await obtenerAPI();
     
     const personajes = data.data;

@@ -12,14 +12,8 @@ export const obtenerAgentePorId = async (id) => {
         }
     }
     throw new Error("Agente no encontrado");
-}
-
+};
 export class Agente {
-    nombre;
-    imagen;
-    descripcion;
-    id;
-
     constructor(nombre, descripcion, id, imagen){
         this.nombre = nombre;
         this.descripcion = descripcion;
