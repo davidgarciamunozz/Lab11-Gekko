@@ -1,18 +1,33 @@
+const API_URL = "https://valorant-api.com/v1";
+
+
 export const obtenerAPI = async (url) => {
-    const response = await fetch("https://valorant-api.com/v1/agents");
+    const response = await fetch(`${API_URL}/agents`);
     const data = await response.json();
     return data;
 };
 
+
 export const obtenerAgentePorId = async (id) => {
-    const agentes = await obtenerAPI();
-    for (const agente of agentes.data){
-        if(agente.uuid === id){
-            return agente;
-        }
+    console.log(id);
+    const list = await obtenerAPI();
+    console.log("lista completa");
+    console.log(list);
+
+    // filtro para encontrar el agente.
+    const agenteEncontrado = list.data.filter((agente) => {
+        return agente.uuid === id;
+    })
+
+    console.log("agente encontrado", agenteEncontrado)
+
+    if(agenteEncontrado.length === 0){
+        throw new Error("Agente no encontrado");
     }
-    throw new Error("Agente no encontrado");
-};
+    
+    return agenteEncontrado[0];
+}
+
 export class Agente {
     constructor(nombre, descripcion, id, imagen){
         this.nombre = nombre;
@@ -43,8 +58,14 @@ export class Agente {
         descripcionAgente.textContent = this.descripcion;
         descripcionAgente.classList.add("agente__descripcion");
 
+        const trashImage = document.createElement("img");
+        trashImage.src = "trash.svg";
+        trashImage.alt = "trash";
+        trashImage.width = 20;
+
         const boton = document.createElement("button");
         boton.textContent = "Ver información";
+        boton.appendChild(trashImage);       
         boton.classList.add("agente__boton");
         boton.addEventListener("click", () => {
             window.location.href = `segunda_pagina.html?id=${this.id}`;

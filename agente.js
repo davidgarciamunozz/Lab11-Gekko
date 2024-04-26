@@ -5,33 +5,37 @@ import { obtenerAgentePorId } from "./utils.js";
 const render = async () => {
     const params = new URLSearchParams(window.location.search);
 
-    const id= params.get ("id");
+    const id= params.get("id");
 
-    const personaje = await obtenerAgentePorId(parseInt(id));  
+    console.log("ID :: ", id);
+
+    const agente = await obtenerAgentePorId(id);  
     
+    console.log(agente);
+
     const container = document.querySelector(".agenteMain");
     const descriptionSelector = document.querySelector(".desc");
     const role = document.querySelector("role");
 
     
     const containerImg = document.createElement("img");
-    containerImg.src = personaje.fullPortrait;
-    containerImg.alt = personaje.displayName;
-
-    const nombreAgente = document.createElement("h2");
-    nombreAgente.textContent = this.displayName;
-    
-    const descripcionAgente = document.createElement("p");
-    descripcionAgente.textContent = this.description;
-    
-    const roleAgente = document.createElement("p");
-
-
-
-    role.appendChild()
-    descriptionSelector.appendChild(descripcionAgente);
+    containerImg.src = agente.fullPortrait == null ? agente.displayIcon : agente.fullPortrait;
+    containerImg.alt = agente.displayName;
+    containerImg.classList.add("agente__imagen");
+ 
     container.appendChild(containerImg);
 
+    const spanName = document.createElement("span");
+    spanName.textContent = agente?.displayName;
+    container.appendChild(spanName);
+
+    const pDescription = document.createElement("p");
+    pDescription.textContent = agente?.description;
+    container.appendChild(pDescription);
+
+    const RolDescription = document.createElement("p");
+    RolDescription.textContent = agente?.rol?.description;
+    container.appendChild(RolDescription);
 
     return container;
 };
