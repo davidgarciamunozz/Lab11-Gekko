@@ -5,10 +5,11 @@
     font-family: sans-serif;
 }
 .agenteMain{
-    border: solid 1px black;
-    opacity: 60%;
+    border: solid 1px rgb(122, 118, 118);
     height: 70vh;
     width: 60vw;
+    padding: 2rem;
+    display: flex;
  
 }
 body{
@@ -20,4 +21,6 @@ body{
 
 .agente__imagen{
     width: 320px;
+    order: -1;
+    
 }
