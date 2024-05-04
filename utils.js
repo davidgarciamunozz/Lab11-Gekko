@@ -29,10 +29,17 @@ export const obtenerAgentePorId = async (id) => {
 }
 
 export class Agente {
+    #id;
+    #nodoContenedorAgente;
+    #nodoNombreAgente;
+    #nodoEliminarAgente;
+
+    
+
     constructor(nombre, descripcion, id, imagen){
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.id = id;
+        this.#id = id;
         this.imagen = imagen;
     }
 
@@ -40,6 +47,7 @@ export class Agente {
         const contenedorAgente = document.createElement("div");
         contenedorAgente.id = this.id;
         contenedorAgente.classList.add("agente");
+        this.#nodoContenedorAgente = contenedorAgente;
 
         const imagenAgente = document.createElement("img");
         imagenAgente.src = this.imagen;
@@ -62,10 +70,10 @@ export class Agente {
         trashImage.src = "trash.svg";
         trashImage.alt = "trash";
         trashImage.width = 20;
+        this.#nodoEliminarAgente = trashImage;
 
         const boton = document.createElement("button");
-        boton.textContent = "Ver información";
-        boton.appendChild(trashImage);       
+        boton.textContent = "Ver información";       
         boton.classList.add("agente__boton");
         boton.addEventListener("click", () => {
             window.location.href = `segunda_pagina.html?id=${this.id}`;
@@ -76,8 +84,15 @@ export class Agente {
         contenedorNombre.appendChild(nombreAgente);
         contenedorNombre.appendChild(descripcionAgente);
         contenedorNombre.appendChild(boton);
+        contenedorNombre.appendChild(trashImage);
 
 
         return contenedorAgente;
+    }
+
+    addEventListeners(){
+      this.#nodoEliminarAgente.addEventListener("click", () => {
+          this.#nodoContenedorAgente.remove();
+      });
     }
 }

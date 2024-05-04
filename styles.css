@@ -22,7 +22,7 @@ button{
     border: solid 1px gray;
     border-radius: 9px;
     display: flex;
-    width: 750px;
+    width: 700px;
 }
 .agente__nombre-contenedor{
     padding: 1.5rem;
@@ -31,7 +31,8 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: .5rem;
+    gap: 1rem;
+    padding-top: 1rem;
 
 }
 
@@ -46,6 +47,8 @@ button{
 .barraBusqueda{
     height: 2rem;
     width: 32rem;
+    margin-top: 1rem;
+    padding: 0 .5rem;
 
 }
 .contenedorBarraBusqueda{

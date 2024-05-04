@@ -1,16 +1,16 @@
 import { obtenerAPI, Agente } from "./utils.js";
 
 
-const render = async () => {
-
+const renderizarPersonajes = async (textoBusqueda) => {
     const data = await obtenerAPI();
-    
-    const personajes = data.data;
-    const contenedor = document.querySelector("#personajes-container");
 
-    console.log(personajes);
+    const textoLimpio = textoBusqueda.toLowerCase();
+    console.log(textoLimpio);
+    const contenedor = document.querySelector("#personajes-container");
+    contenedor.innerHTML = "";
+    // console.log(personajes);
     
-    for (const personaje of personajes){
+    for (const personaje of data.data){
         const agente = new Agente(
             personaje?.displayName,
             personaje?.description,
@@ -20,8 +20,22 @@ const render = async () => {
             personaje?.fullPortrait
         );
         const agenteRender = agente.render();
-        contenedor.appendChild(agenteRender);
+
+        if(textoLimpio === "" || personaje?.displayName.toLowerCase().includes(textoLimpio)){
+            contenedor.appendChild(agenteRender);
+            agente.addEventListeners();
+        }
     }
+};
+
+const render = async () => {
+       await renderizarPersonajes("");
+
+       const barraBusqueda = document.querySelector(".barraBusqueda");
+       barraBusqueda.addEventListener("input", async (event) =>{
+           const textBusqueda = event.target.value;
+           await renderizarPersonajes(textBusqueda);
+       });
 };
 
 document.addEventListener("DOMContentLoaded", render);
