@@ -31,7 +31,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1rem;
+    gap: .5rem;
 
 }
 
@@ -41,4 +41,16 @@ button{
     justify-content: center;
     align-items: center;
     gap: .5rem;
+}
+
+.barraBusqueda{
+    height: 2rem;
+    width: 32rem;
+
+}
+.contenedorBarraBusqueda{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
 }
