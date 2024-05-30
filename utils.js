@@ -24,7 +24,7 @@ export const obtenerAgentePorId = async (id) => {
     if(agenteEncontrado.length === 0){
         throw new Error("Agente no encontrado");
     }
-    
+    0
     return agenteEncontrado[0];
 }
 
@@ -39,7 +39,7 @@ export class Agente {
     constructor(nombre, descripcion, id, imagen){
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.#id = id;
+        this.id = id;
         this.imagen = imagen;
     }
 
@@ -76,7 +76,9 @@ export class Agente {
         boton.textContent = "Ver información";       
         boton.classList.add("agente__boton");
         boton.addEventListener("click", () => {
+
             window.location.href = `segunda_pagina.html?id=${this.id}`;
+            console.log(this.id);
         });
 
         contenedorAgente.appendChild(imagenAgente);

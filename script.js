@@ -30,6 +30,13 @@ const renderizarPersonajes = async (textoBusqueda) => {
 
 const render = async () => {
        await renderizarPersonajes("");
+       const dataAgents = await obtenerAPI();
+       
+       dataAgents.data.forEach(agent => {
+        console.log(agent.uuid);
+    });
+
+       console.log(dataAgents.data);
 
        const barraBusqueda = document.querySelector(".barraBusqueda");
        barraBusqueda.addEventListener("input", async (event) =>{
